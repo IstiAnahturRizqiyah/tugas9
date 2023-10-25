@@ -1,5 +1,6 @@
+const argv = require("yargs");
 const yargs = require('yargs');
-const tugas7 = require ('./tugas7');
+const tugas7 = require ('./tugas8');
     yargs.command({
         command: 'add',
         describe: 'add new contact',
@@ -21,7 +22,7 @@ const tugas7 = require ('./tugas7');
             }
         },
         handler(argv){
-             tugas7.simpankontak(argv.nama, argv.hp, argv.email)
+            tugas7.simpankontak(argv.nama, argv.hp, argv.email)
               
             }
         });

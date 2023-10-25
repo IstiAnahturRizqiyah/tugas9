@@ -16,9 +16,15 @@ if (!fs.existsSync(filepath)) {
  //ini untuk menyimpan data yang telah di input
  const simpankontak = (nama,hp,email) => {
     const contact = {nama,hp,email};
-
     const file = fs.readFileSync('data/contacts.json', 'utf-8');
     const contacts = JSON.parse(file);
+
+    const duplikatNama =contacts.find((contac) => contac.nama === nama);
+    if (duplikatNama){
+        console.log('Nama yang anda masukan sudah terdaftar! Silahkan masukan nama lain!')
+        return false;
+    }
+    
      //cek no telepon
      if (hp){
         if(!validator.isMobilePhone(hp, 'id-ID')){
